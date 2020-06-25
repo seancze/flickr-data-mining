@@ -1,7 +1,7 @@
 # flickr-data-mining
 
 ## How to use
-1) Create a list of main_tags that you want to based your search around. For instance,
+1) Create a list of main_tags that you want to based your search around. For instance,  
 `cuisine = ['Japanese', 'Korean', 'Chinese', Vietnamese', 'Asian']`
 2) Pass the tags through get_related_tags to retrieve tags related to it. This is to broaden one's search.
 `all_tags = get_related_tags(cuisine)`
