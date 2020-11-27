@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
-
 
 import json
 import pandas as pd
@@ -10,16 +8,6 @@ import csv
 import io
 import os
 import urllib.request as urllib
-
-
-# In[ ]:
-
-
-df = pd.read_csv(r"C:\Users\seanc\OneDrive\Desktop\Work\SUTD\UROP\Data Mining\flickr-scrape\Data\user_id images\image_metadata (21-50).csv")
-
-
-# In[ ]:
-
 
 def download_images_csv():
     # Ask for location of csv file
@@ -61,10 +49,6 @@ def download_images_csv():
         print(f"Status: {i+1}/{len(user_id)}")
         print(f"Total pictures downloaded for {el}: {end-start}")
 
-
-# In[ ]:
-
-
 def json_to_dict(file, is_json = True):
     '''
     Obtain a regular dictionary from .JSON file
@@ -75,9 +59,6 @@ def json_to_dict(file, is_json = True):
             return regular_dict
     regular_dict = json.loads(json.dumps(file))
     return regular_dict
-
-
-# In[ ]:
 
 
 def download_images_json():
@@ -108,9 +89,6 @@ def download_images_json():
                     continue
 
 
-# In[ ]:
-
-
 def main():
 #     Check if json or csv
     is_csv = True
@@ -130,8 +108,6 @@ def main():
         download_images_json()
 
 
-# In[ ]:
-
-
-main()
+if __name__ == "__main__":
+    main()
 

@@ -20,10 +20,8 @@ secret = ''
 flickr = flickrapi.FlickrAPI(api_key, secret, format = 'parsed-json')
 
 
-# # Scrape all user's photos from a .txt file of user ids.
-# 
+# Scrape all user's photos from a .txt file of user ids.
 
-# In[ ]:
 
 
 def retrieve_user_ids(path):
@@ -37,10 +35,6 @@ def retrieve_user_ids(path):
             list_of_user_ids.append(line.strip())
 
     return list_of_user_ids
-
-
-# In[ ]:
-
 
 def retrieve_location(photo, is_free = True, google_api_key = ''):
     '''
@@ -83,10 +77,6 @@ def retrieve_location(photo, is_free = True, google_api_key = ''):
 #         print("Location field is empty")
         return "NIL"
 
-
-# In[ ]:
-
-
 def retrieve_photo_data(photo, d, is_free, google_api_key, has_geo=True):
     '''
     Input: Photo retrieved from flickr.walk, Dictionary to input photo data into
@@ -100,10 +90,6 @@ def retrieve_photo_data(photo, d, is_free, google_api_key, has_geo=True):
     d["date_taken"] = photo.get("datetaken")
     d["url_500"] = photo.get("url_m")
     d["location"] = retrieve_location(photo, is_free, google_api_key)
-
-
-# In[ ]:
-
 
 def user_input():
     # Default settings
@@ -145,10 +131,6 @@ def user_input():
         
         
     return user_ids, output_file, has_geo, is_free, google_api_key
-
-
-# In[ ]:
-
 
 def main():
     '''
@@ -220,9 +202,6 @@ def main():
             writer.writerow({'user_id': d['user_id']})
             writer.writerows(d['images_metadata']) 
 
-
-# In[ ]:
-
-
-main()
+if __name__ == "__main__":
+    main()
 

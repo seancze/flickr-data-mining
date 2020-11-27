@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Import modules and check for access to flickrApi
+# Import modules and check for access to flickrApi
 
-# In[ ]:
 
 
 import flickrapi
@@ -28,8 +27,6 @@ flickr = flickrapi.FlickrAPI(api_key, secret, format = 'parsed-json')
 
 # # Obtain list of user_ids based around search preferences (I.e. Inputted tags)
 
-# In[ ]:
-
 
 # Auxiliary Function
 def get_arr(my_str):
@@ -40,8 +37,6 @@ def get_arr(my_str):
     my_arr = [x.strip() for x in my_arr]
     return my_arr
 
-
-# In[ ]:
 
 
 def get_top3_tags(main_tag):
@@ -63,8 +58,6 @@ def get_top3_tags(main_tag):
         top3_tags.append(top3_tags_per_cluster)
     return top3_tags
 
-
-# In[ ]:
 
 
 # Example of some tags
@@ -90,7 +83,6 @@ def get_related_tags(main_tags):
     return unique_tags
 
 
-# In[ ]:
 
 
 def get_user_ids(main_tag, top3_tags):
@@ -117,7 +109,6 @@ def get_user_ids(main_tag, top3_tags):
     return user_ids
 
 
-# In[ ]:
 
 
 def get_ids_from_groups(group_ids):
@@ -142,8 +133,6 @@ def get_ids_from_groups(group_ids):
     print(f'User_ids from groups: {len(member_ids)}')
     return member_ids
 
-
-# In[ ]:
 
 
 def filter_users(user_ids):
@@ -187,9 +176,6 @@ def filter_users(user_ids):
     
 
 
-# In[ ]:
-
-
 def retrieve_relevant_headers(user_ids, user_info, file_name):
     '''
     Input: 
@@ -224,9 +210,6 @@ def retrieve_relevant_headers(user_ids, user_info, file_name):
                     location,
                     user_info[i]["person"]["photos"]["count"]["_content"],
                     user_info[i]["person"]["photos"]["firstdatetaken"]["_content"]])
-
-
-# In[ ]:
 
 
 def main():
@@ -331,7 +314,5 @@ def main():
         retrieve_relevant_headers(sorted_user_ids, sorted_user_info, file_name)        
 
 
-# In[ ]:
-
-
-main()
+if __name__ == "__main__":
+    main()
